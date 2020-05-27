@@ -281,8 +281,9 @@ include("web-include/class_file.php");
                 <!-- Level Two-->
                 <ul>
                     <li><a href="application-setup.php"><i class="zmdi zmdi-dot-circle-alt"></i> Application SetUp</a></li>
-                    <li><a href="register-categories.php"><i class="zmdi zmdi-dot-circle-alt"></i> Setup Categories</a></li>
-                    <li><a href="register-sub-categories.php"><i class="zmdi zmdi-dot-circle-alt"></i> Setup Sub-Categories</a></li>
+                    <li><a href="register-categories.php"><i class="zmdi zmdi-dot-circle-alt"></i>  Categories</a></li>
+                    <li><a href="register-sub-categories.php"><i class="zmdi zmdi-dot-circle-alt"></i> Sub-Categories</a></li>
+                    <li><a href="register-products.php"><i class="zmdi zmdi-dot-circle-alt"></i> Register Products</a></li>
 					 
                 </ul>
             </li>

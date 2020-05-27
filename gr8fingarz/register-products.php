@@ -1,6 +1,9 @@
 <?php
 include("header.php");
 include("web-include/view-application-details-full.php");
+include("web-include/view-product-info-all.php");
+
+
 
 ?>
     <!-- end horizontal Menu -->
@@ -12,11 +15,11 @@ include("web-include/view-application-details-full.php");
       <!-- Breadcrumb-->
      <div class="row pt-2 pb-2">
         <div class="col-sm-9">
-		   <h4 class="page-title">Register SubCategories</h4>
+		   <h4 class="page-title">Register Products</h4>
 		    <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javaScript:void();">Dashboard</a></li>
             <li class="breadcrumb-item"><a href="javaScript:void();">Settings</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Register Sub-Categories</li>
+            <li class="breadcrumb-item active" aria-current="page">Register Products</li>
          </ol>
 	   </div>
 	    
@@ -26,7 +29,7 @@ include("web-include/view-application-details-full.php");
 		 <div class="row">
 											<div class="col-md-12">
                                             <?php
- include("web-include/sub-category-process.php");
+ include("web-include/product-registeration-process.php");
 											
 											?>
                                            
@@ -41,7 +44,7 @@ include("web-include/view-application-details-full.php");
 				 
 				 <div class="form-group overflow-hidden">
 													<label>Sub-Category Name:</label>
- <select name="category" class="form-control single-select"    id="category"    required >
+ <select name="subcategory" class="form-control single-select"    id="subcategory"    required >
 			  
 	 <?php
 	 if(isset($_GET['value']))
@@ -49,7 +52,7 @@ include("web-include/view-application-details-full.php");
 	 
 	 ?>
 	 
-	   <option value="<?php echo $inst_bank_name; ?>" selected="selected"><?php echo $inst_bank_name; ?></option>
+	   <option value="<?php echo $subcategory_value1; ?>" selected="selected"><?php echo $subcategory_name1." - ". $category_name1; ?></option>
 	 
 	 <?php
 	 }
@@ -62,7 +65,9 @@ include("web-include/view-application-details-full.php");
 	 }
 		 ?>
                 <?php
-	 include("config/DB_config.php");$query =  "SELECT `id`, `name`  FROM `categories` WHERE `status` = 1 AND `name` != '' ORDER BY `id` ASC";	
+	 include("config/DB_config.php");
+	 
+	 $query =  "SELECT `id`, `name`, `category`  FROM `subcategories` WHERE `status` = 1 AND `name` != '' ORDER BY `id` ASC";	
  $extract_distance = mysqli_query($conn, $query) or die(mysqli_error($conn));
 		$count = mysqli_num_rows($extract_distance);
     if ($count > 0)
@@ -71,10 +76,13 @@ include("web-include/view-application-details-full.php");
     {
   						  $code=$row_distance[0];
 					  $name =$row_distance[1];
-					 
+					  $category =$row_distance[2];
+		 
+		  $myName = new Name();
+				$name_name = $myName->showName($conn, "SELECT `name` FROM `categories` WHERE `id` = '$category'");	 
 					  
 					  
-				echo '	<option value='.$code.'>'.$name.'</option>';	
+				echo '	<option value='.$code.'>'.$name.' - '.$name_name .'</option>';	
 				
 				  
 	}
@@ -89,13 +97,22 @@ include("web-include/view-application-details-full.php");
 				 
 				 
               <div class="form-group overflow-hidden">
-													<label>Sub-Categories Name:</label>
- <input type="text" class="form-control" id="exampleInputuname_1" placeholder="Category Name" name="name" value="<?php 	 if(isset($_GET['value']))
-	 { echo $cat_name; } ?>" required>
-												</div>
+													<label>Product Name:</label>
+ <input type="text" class="form-control" id="exampleInputuname_1" placeholder="Product Name" name="name" value="<?php 	 if(isset($_GET['value']))
+	 { echo $productname; } ?>" required>
+											
+				 
+				  <input type="hidden" class="form-control"  name="iding" value="<?php 	 if(isset($_GET['value']))
+	 { echo $iding; } ?>" required>
+				 
+				 
+				 
+				 
+				 
+				 </div>
 											   <div class="form-group">
                       <label>Status</label>
-                      <select class="form-control single-select" name="status">
+                      <select class="form-control single-select" name="status" required>
                           <option value = "1">Active</option>
                           <option value="0">Inactive</option>
                          
@@ -103,7 +120,20 @@ include("web-include/view-application-details-full.php");
                     </div>
                                                 
 										 
-                      <button  type="submit" name="validate" class="btn btn-lg btn-primary m-b-5 m-t-5">
+                      <button  type="submit" name="<?php
+	 if(isset($_GET['value']))
+	 {
+	 
+	 echo "update";
+												 
+	 }
+													else
+													{
+														
+												echo "validate"		;
+														
+													}
+													?>" class="btn btn-lg btn-primary m-b-5 m-t-5">
 													
 													 <?php
 	 if(isset($_GET['value']))
@@ -146,6 +176,7 @@ include("web-include/view-application-details-full.php");
                     <tr>
                       	<th>Category</th>
                       	<th>Sub Category</th>
+                      	<th>Product Name</th>
 														<th>Created Date</th>
 														<th>Registered By</th>
 														<th>Status</th>
@@ -155,7 +186,7 @@ include("web-include/view-application-details-full.php");
                 </thead>
                 <tbody>
 												   <?php
-												include("web-include/view-sub-categories.php");
+												 include("web-include/view-product-info.php");
 												
 												?>
                                                 
@@ -164,10 +195,12 @@ include("web-include/view-application-details-full.php");
                   <tr>
                       			<th>Category</th>
                       	<th>Sub Category</th>
+                      	<th>Product Name</th>
 														<th>Created Date</th>
 														<th>Registered By</th>
 														<th>Status</th>
 														<th>More</th>
+														 
                     </tr>
                 </tfoot>
             </table>                       

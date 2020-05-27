@@ -126,10 +126,7 @@ include("web-include/view-application-details-full.php");
 	 }
 		 ?>
                 <?php
-	 include("config/DB_config.php");
-	 
-	 //SELECT  `id`, `name`, `state`, `created_date`, `registeredby`, `status` FROM `business_unit` 
-	 $query =  "SELECT `code`, `name`  FROM `banks` WHERE `status` = 1 AND `name` != '' ORDER BY `id` ASC";	
+	 include("config/DB_config.php");$query =  "SELECT `code`, `name`  FROM `banks` WHERE `status` = 1 AND `name` != '' ORDER BY `id` ASC";	
  $extract_distance = mysqli_query($conn, $query) or die(mysqli_error($conn));
 		$count = mysqli_num_rows($extract_distance);
     if ($count > 0)
