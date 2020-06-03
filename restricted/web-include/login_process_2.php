@@ -1,7 +1,7 @@
 <?php 
   date_default_timezone_set('Africa/Lagos');
 	
-	require_once('config/DB_config.php');
+	require_once('restricted/config/DB_config.php');
 	 $today=date("Y-m-d"); 
 
 	 $todaydatefull=  date('Y-m-d G:i:s'); 
@@ -23,7 +23,7 @@ global $error, $success, $error2;
 
 if(isset($_POST['login']))
 {
-$password =   mysqli_real_escape_string($conn, $_POST['password'] );
+$password =   mysqli_real_escape_string($conn, $_POST['password_in'] );
 $username =   mysqli_real_escape_string($conn, $_POST['username']) ;
  
 	
@@ -47,7 +47,7 @@ $error =  $errinput_arr;
 else
 {
 
-$statement = "select * from `user_unit` where (`account_number` = '$username' OR `email` = '$username' OR `phone` = '$username') AND `status` =  1";
+$statement = "select * from `sp_registration` where (`account_number` = '$username' OR `email` = '$username' OR `phone` = '$username') AND `status` =  1";
 	
 $result = mysqli_query($conn,$statement) or die("ERROR OCCURED: ".mysqli_error($conn));
 
@@ -62,8 +62,9 @@ $emailAdd  = $customer['email'];
 $phoneNumber  = $customer['phone']; 
 $account_number = $customer['account_number'];
 
-$lastname  = $customer['name'];
-$firstname  = $customer['name']; 
+$lastname  = $customer['fname'];
+$firstname  = $customer['lname']; 
+$cname  = $customer['cname']; 
 $fullname = $lastname;
 	 $encrypted_password = $customer['encrypted_password'];
 	$_SESSION['identify'] = $customer['id'];
@@ -78,9 +79,15 @@ $fullname = $lastname;
 	   $_SESSION['lastname'] = $lastname;
 
 $_SESSION['fullname'] = $fullname;
-
- 
 $_SESSION['name'] =$fullname;
+	 
+	 if($fullname == "")
+{
+	
+	$_SESSION['name'] =$cname;
+}
+ 
+
 $_SESSION['email'] = $customer['account_number'];
 	
 	
@@ -143,13 +150,13 @@ setcookie('password_me', $_POST['password'], $year);
 
  
 	 
-	 echo '<meta http-equiv="Refresh" content="0; url=dashboard.php"> ';
+	 echo '<meta http-equiv="Refresh" content="0; url= clients/index.php"> ';
 		 
 	   }
 	   else
 	   {
 		   
-		   echo '<meta http-equiv="Refresh" content="0; url=change-pwd.php"> ';
+		   echo '<meta http-equiv="Refresh" content="0; url= clients/index.php"> ';
 	   }
  
    }

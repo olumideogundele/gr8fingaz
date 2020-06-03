@@ -31,9 +31,9 @@
 					<h3 data-target="#collapse_ft_3">Contacts</h3>
 					<div class="collapse dont-collapse-sm" id="collapse_ft_3">
 						<ul class="contacts">
-							<li><i class="ti-home"></i>97845 Baker st. 567<br>Los Angeles - US</li>
-							<li><i class="ti-headphone-alt"></i>+39 06 97240120</li>
-							<li><i class="ti-email"></i><a href="#0">info@sparker.com</a></li>
+							<li><i class="ti-home"></i><?php echo $inst_address; ?></li>
+							<li><i class="ti-headphone-alt"></i><?php echo $inst_phone;  ?></li>
+							<li><i class="ti-email"></i><a href="#0"><?php echo $inst_email;  ?></a></li>
 						</ul>
 					</div>
 				</div>
@@ -66,27 +66,7 @@
 			<hr>
 			<div class="row">
 				<div class="col-lg-6">
-					<ul id="footer-selector">
-						<li>
-							<div class="styled-select" id="lang-selector">
-								<select>
-									<option value="English" selected>English</option>
-									<option value="French">French</option>
-									<option value="Spanish">Spanish</option>
-									<option value="Russian">Russian</option>
-								</select>
-							</div>
-						</li>
-						<li>
-							<div class="styled-select" id="currency-selector">
-								<select>
-									<option value="US Dollars" selected>US Dollars</option>
-									<option value="Euro">Euro</option>
-								</select>
-							</div>
-						</li>
-						<li><img src="backend/img/cards_all.svg" alt=""></li>
-					</ul>
+					 
 				</div>
 				<div class="col-lg-6">
 					<ul id="additional_links">
@@ -156,6 +136,9 @@
     <script src="backend/js/common_scripts.js"></script>
 	<script src="backend/js/functions.js"></script>
 	<script src="backend/assets/validate.js"></script>
+
+<script src="backend/js/modernizr_tables.js"></script>
+	<script src="backend/js/tables_func.js"></script>
 
 </body>
 </html>

@@ -11,7 +11,7 @@ include_once("header.php");
 					<div class="row justify-content-center pt-lg-5">
 						<div class="col-xl-5 col-lg-6">
 							<h3>Find what you need!</h3>
-							<p>Discover top rated hotels, shops and restaurants around the world</p>
+							<p>Discover top rated service providers all over the Nigeria</p>
 							<form method="post" action="backend/grid-listings-filterscol.html">
 								<div class="custom-search-input-2">
 									<div class="form-group">
@@ -23,13 +23,14 @@ include_once("header.php");
 										<i class="icon_pin_alt"></i>
 									</div>
 									<select class="wide">
-										<option>All Categories</option>	
-										<option>Shops</option>
-										<option>Hotels</option>
-										<option>Restaurants</option>
-										<option>Bars</option>
-										<option>Events</option>
-										<option>Fitness</option>
+										<option value="*">All Categories</option>
+										
+										
+										<?php
+										 include("restricted/web-include/view-categories-home-page.php");
+										
+										?>
+										 
 									</select>
 									<input type="submit" value="Search">
 								</div>
@@ -48,30 +49,18 @@ include_once("header.php");
 		<div class="main_categories">
 			<div class="container">
 				<ul class="clearfix">
-					<li>
-						<a href="grid-listings-filterscol.html">
-							<i class="icon-shop"></i>
-							<h3>Shops</h3>
-						</a>
-					</li>
-					<li>
-						<a href="grid-listings-filterscol.html">
-							<i class="icon-lodging"></i>
-							<h3>Hotels</h3>
-						</a>
-					</li>
-					<li>
-						<a href="grid-listings-filterscol.html">
-							<i class="icon-restaurant"></i>
-							<h3>Restaurants</h3>
-						</a>
-					</li>
-					<li>
-						<a href="grid-listings-filterscol.html">
-							<i class="icon-bar"></i>
-							<h3>Bars</h3>
-						</a>
-					</li>
+					
+					<?php
+					
+					include("restricted/web-include/view-categories-lower.php");
+					
+					?>
+					
+					
+					
+					
+					
+					 
 					<li>
 						<a href="grid-listings-filterscol.html">
 							<i class="icon-dot-3"></i>
@@ -84,84 +73,28 @@ include_once("header.php");
 		</div>
 		
 		<div class="bg_color_1">
-			<div class="container margin_80_55">
+			<div class="container margin_50_55">
 				<div class="main_title_2">
 					<span><em></em></span>
 					<h2>Popular Categories</h2>
-					<p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+					<p>Top Selling Categories</p>
 				</div>
 				<div class="row">
-				<div class="col-lg-4 col-sm-6">
-					<a href="backend/grid-listings-filterstop.html" class="grid_item">
-						<figure>
-							<img src="backend/img/home_cat_1.jpg" alt="">
-							<div class="info">
-								<small>122 Locations</small>
-								<h3>Shops</h3>
-							</div>
-						</figure>
-					</a>
-				</div>
-				<!-- /grid_item -->
-				<div class="col-lg-4 col-sm-6">
-					<a href="backend/grid-listings-filterstop.html" class="grid_item">
-						<figure>
-							<img src="backend/img/home_cat_2.jpg" alt="">
-							<div class="info">
-								<small>245 Locations</small>
-								<h3>Hotels</h3>
-							</div>
-						</figure>
-					</a>
-				</div>
-				<!-- /grid_item -->
-				<div class="col-lg-4 col-sm-6">
-					<a href="backend/grid-listings-filterstop.html" class="grid_item">
-						<figure>
-							<img src="backend/img/home_cat_3.jpg" alt="">
-							<div class="info">
-								<small>95 Locations</small>
-								<h3>Restaurants</h3>
-							</div>
-						</figure>
-					</a>
-				</div>
-				<!-- /grid_item -->
-				<div class="col-lg-4 col-sm-6">
-					<a href="backend/grid-listings-filterstop.html" class="grid_item">
-						<figure>
-							<img src="backend/img/home_cat_4.jpg" alt="">
-							<div class="info">
-								<small>123 Locations</small>
-								<h3>Bars</h3>
-							</div>
-						</figure>
-					</a>
-				</div>
-				<!-- /grid_item -->
-				<div class="col-lg-4 col-sm-6">
-					<a href="backend/grid-listings-filterstop.html" class="grid_item">
-						<figure>
-							<img src="backend/img/home_cat_5.jpg" alt="">
-							<div class="info">
-								<small>92 Locations</small>
-								<h3>Events</h3>
-							</div>
-						</figure>
-					</a>
-				</div>
-				<!-- /grid_item -->
-				<div class="col-lg-4 col-sm-6">
-					<a href="backend/grid-listings-filterstop.html" class="grid_item">
-						<figure>
-							<img src="backend/img/home_cat_6.jpg" alt="">
-							<div class="info">
-								<small>92 Locations</small>
-								<h3>Fitness</h3>
-							</div>
-						</figure>
-					</a>
-				</div>
+					
+					
+					
+					<?php 
+					
+					include("restricted/web-include/view-category-slider.php");
+					
+					
+					?>
+					
+					
+					
+					
+				 
+				 
 				<!-- /grid_item -->
 			</div>
 			<!-- /row -->

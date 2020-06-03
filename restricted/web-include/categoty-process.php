@@ -15,6 +15,7 @@ $emailing  = $_SESSION['email'];
  
 $name= $_POST['name'];
 $status  = $_POST['status'];
+$icon  = $_POST['icon'];
 	  $image = basename($_FILES["logo"]["name"]);
  
   if($image == "")
@@ -46,8 +47,8 @@ echo "<div class='btn btn-danger btn-lg'> Information in the database already. P
  
  
  	 
-$sql = 	 "INSERT INTO `categories`(`name`, `status`, `created_date`, `registeredby` , `images`,`unique` ) VALUES
-('$name', '$status',  '$datetime', '$emailing', '$logo', '$rand')";
+$sql = 	 "INSERT INTO `categories`(`name`, `status`, `created_date`, `registeredby` , `images`,`unique` ,`icon` ) VALUES
+('$name', '$status',  '$datetime', '$emailing', '$logo', '$rand', '$icon')";
  
  $process = mysqli_query($conn, $sql) or die(mysqli_error($conn));
  

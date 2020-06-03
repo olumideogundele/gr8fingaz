@@ -54,7 +54,16 @@ include("web-include/view-application-details-full.php");
                        <div class="form-group overflow-hidden">
 													<label>Logo:</label>
  <input type="file" class="form-control" id="" name="logo" placeholder="Category Images" required>
-												</div>       
+												</div>   
+				 
+				     <div class="form-group overflow-hidden">
+													<label>Icon:</label>
+ <input type="text" class="form-control" id="icon" placeholder="icon-camera-4" name="icon" value="<?php 	 if(isset($_GET['value']))
+	 { echo $icon; } ?>" required>
+												</div>
+				 
+				 
+				 
 											   <div class="form-group">
                       <label>Status</label>
                       <select class="form-control single-select" name="status">
