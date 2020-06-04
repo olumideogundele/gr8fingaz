@@ -140,5 +140,7 @@
 <script src="backend/js/modernizr_tables.js"></script>
 	<script src="backend/js/tables_func.js"></script>
 
+ <script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
+
 </body>
 </html>

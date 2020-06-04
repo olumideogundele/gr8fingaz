@@ -355,9 +355,9 @@ Primary style
 
 .currency,
 .price-value {
-  font-size: 24px;
+  font-size: 10px;
   font-size: 1.5rem;
-  font-weight: 300;
+  font-weight: 100;
 }
 
 .price-duration {
@@ -376,9 +376,9 @@ Primary style
 
 @media only screen and (min-width: 769px) {
   .price-value {
-    font-size: 90px;
-    font-size: 5.625rem;
-    font-weight: 300;
+    font-size: 40px;
+    font-size: 3.625rem;
+    font-weight: 100;
   }
 
   .currency,

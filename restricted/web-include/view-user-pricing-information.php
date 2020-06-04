@@ -59,7 +59,7 @@ echo '<li>
 							</div>
 							<!-- /pricing-body -->
 							<footer class="pricing-footer">
-								<a class="select-plan" href="?mo='.$id.'">Select</a>
+								<a class="select-plan" href="user-princing-payment-process.php?mo='.$id.'">Select</a>
 							</footer>
 						</li>
 						<li data-type="yearly" class="is-hidden">
@@ -68,7 +68,7 @@ echo '<li>
 
 								<div class="price">
 									<span class="currency">&#8358;</span>
-									<span class="price-value">'.$yearly_payment.'</span>
+									<span class="price-value">'.number_format($yearly_payment).'</span>
 									<span class="price-duration">yr</span>
 								</div>
 							</header>
@@ -80,7 +80,7 @@ echo '<li>
 							</div> 
 							<!-- /pricing-body -->
 							<footer class="pricing-footer">
-								<a class="select-plan" href="?yr='.$id.'">Select</a>
+								<a class="select-plan" href="user-princing-payment-process.php?yr='.$id.'">Select</a>
 							</footer>
 						</li>
 					 

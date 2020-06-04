@@ -13,6 +13,8 @@ $emailing  = $_SESSION['email'];
 	 
  if(isset($_POST['terms']))
  {	 
+	 
+	 $url = "";
 	 $cname = "";
 	 $address1 = "";
 	 $phone = "";
@@ -46,6 +48,7 @@ $client_type  = $_POST['client_type'];
 $lname  = $_POST['lname'];
 		 $address1  = $_POST['address1'];
 		 $type = 1;
+		 $url = "seeker-subcription-pricing.php";
 		 
  		if($password == "" or $email == "" or  $phone == "" or  $fname == "" or $lname == "")
 	 {
@@ -59,7 +62,11 @@ $lname  = $_POST['lname'];
 		 }
 	 }
 	 else
-	 {$address1  = $_POST['address'];
+	 {
+		  $url = "provider-subcription-pricing.php";
+		 
+		 
+		 $address1  = $_POST['address'];
 		 $phone  = $_POST['phone1'];
 		 $cname= $_POST['cname'];
 		 $name= $_POST['cname'];
@@ -695,9 +702,9 @@ Please find your credentials below.</div>
 		
 		
 		
-  echo '<div class="btn btn-success">Information Submitted Successfully.</a></div><br />'; 	
+  echo '<div class="btn btn-success">Information Submitted Successfully. Please wait..</a></div><br />'; 	
   
- 
+  echo '<meta http-equiv="Refresh" content="3; url= '.$url.'"> ';
    
 } else {
   // echo "Error: " . $sql . "<br>" . $conn->error;
